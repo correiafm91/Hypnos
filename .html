@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypnos Copywriting</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #c8a45d;
+            --bg-color: #ffffff;
+            --text-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif;
+            padding-bottom: 60px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 0;
+            background: linear-gradient(rgba(26, 26, 26, 0.05), rgba(26, 26, 26, 0.02));
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        /* Features & Services Sections */
+        .features, .services {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 3rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .features-grid, .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 40px 0;
+        }
+
+        .feature-card, .service-card {
+            padding: 40px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .feature-card:hover, .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .icon-container {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-3d {
+            width: 100%;
+            height: 100%;
+            stroke: var(--primary-color);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: linear-gradient(rgba(26, 26, 26, 0.02), rgba(26, 26, 26, 0.05));
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+
+        .about p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Leadership Section */
+        .leadership {
+            padding: 100px 0;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .leadership h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+        }
+
+        .leadership p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .price-card {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .price-container {
+            display: inline-flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 4px;
+            margin: 30px 0;
+        }
+
+        .price {
+            font-size: 4rem;
+            color: var(--accent-color);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .price-label {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-left: 4px;
+        }
+
+        /* Chat Notice */
+        .chat-notice {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <h1 class="typing"></h1>
+            <p class="typing-subtitle"></p>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">O que você ganha ao escolher a Hypnos</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="icon-container">
+                        <svg class="icon-3d" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M12 20V10M18 20V4M6 20V16" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Aumento das vendas</h3>
+                    <p>Textos que transformam visitantes em clientes e maximizam as conversões</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-container">
+                        <svg class="icon-3d" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M12 4C6.48 4 2 8.48 2 14c0 2.76 1.12 5.26 2.93 7.07L12 14V4z"/>
+                            <path d="M12 4c5.52 0 10 4.48 10 10 0 2.76-1.12 5.26-2.93 7.07L12 14V4z"/>
+                        </svg>
+                    </div>
+                    <h3>Maior engajamento</h3>
+                    <p>Mensagens criativas e envolventes que incentivam interações e decolam suas redes sociais</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">E o que te entregamos</h2>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="icon-container">
+                        <svg class="icon-3d" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            <path d="M12 8v4l3 3"/>
+                        </svg>
+                    </div>
+                    <h3>Criação de estratégias</h3>
+                    <p>Primeiro, entramos em fase de entender as suas necessidades para criar a estratégia mais personalizada possível</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-container">
+                        <svg class="icon-3d" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </div>
+                    <h3>Copy para páginas de sites</h3>
+                    <p>Aumente em até 53,3% o número de conversões com palavras poderosas capazes de fazerem uma pessoa virarem seu cliente</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-container">
+                        <svg class="icon-3d" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/>
+                            <path d="M20 12c0-4.42-3.58-8-8-8s-8 3.58-8 8 3.58 8 8 8 8-3.58 8-8z"/>
+                        </svg>
+                    </div>
+                    <h3>Copy para VSL</h3>
+                    <p>Roteiros de vídeos capazes de prender atenção nos primeiros 3 segundos</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-container">
+                        <svg class="icon-3d" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                        </svg>
+                    </div>
+                    <h3>Copy para redes sociais</h3>
+                    <p>Tenha legendas estruturadas para seus conteúdos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div data-aos="fade-right">
+                    <img src="https://i.postimg.cc/FRvrZ1Vn/Captura-de-tela-2024-12-09-120951-1.png" alt="Hypnos Logo" style="max-width: 100%;">
+                </div>
+                <div data-aos="fade-left">
+                    <h2>Por trás das palavras</h2>
+                    <p>"Na Hypnos, somos mais do que uma agência de copywriting. Somos artesãos das palavras, criadores de estratégias que geram resultados reais. Nosso objetivo? Aumentar suas vendas, engajar seu público e transformar cada mensagem em uma oportunidade de crescimento.</p>
+                    <p>Combinamos criatividade, psicologia de vendas e estratégia digital para entregar textos que convertam, encantem e conquistem. A cada projeto, trabalhamos lado a lado com você para entender seu negócio e criar a copy que seu público não consegue ignorar"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="leadership">
+        <div class="container">
+            <h2>🏆 Líder no Brasil</h2>
+            <p>A Hypnos é reconhecida como a agência líder no Brasil especializada em serviços de copywriting, 
+               combinando expertise em psicologia de vendas com estratégias digitais inovadoras para entregar 
+               resultados excepcionais aos nossos clientes.</p>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <div class="price-card" data-aos="zoom-in">
+                <img src="https://i.postimg.cc/xjs1MvcX/Captura-de-tela-2024-12-09-121045.png" alt="Pricing Image" style="max-width: 100%;">
+                <h2>Aqui é o ponto de partida. O destino? O topo!</h2>
+                <div class="price-container">
+                    <span class="price">R$995</span>
+                    <span class="price-label">por projeto</span>
+                </div>
+                <p><em>É caro? Pergunte para o seu concorrente quanto ele pagaria para ter o que você tem</em></p>
+            </div>
+        </div>
+    </section>
+
+    <div class="chat-notice">
+        FALE COM O NOSSO CHATBOT AO LADO DIREITO DO SITE
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Typing Animation
+        const content = {
+            title: {
+                text: "VOCÊ QUER MAIS VENDAS?",
+                element: document.querySelector('.typing')
+            },
+            subtitle: {
+                text: "Nós escrevemos o caminho até elas.",
+                element: document.querySelector('.typing-subtitle')
+            }
+        };
+
+        function typeWriter(contentType) {
+            const currentContent = content[contentType];
+            let currentCharIndex = 0;
+
+            function type() {
+                if (currentCharIndex < currentContent.text.length) {
+                    currentContent.element.textContent = currentContent.text.substring(0, currentCharIndex + 1);
+                    currentCharIndex++;
+                    setTimeout(type, 50);
+                }
+            }
+
+            type();
+        }
+
+        typeWriter('title');
+        setTimeout(() => typeWriter('subtitle'), 1000);
+ </script>
+<body>
+  <!-- Widget Env Script -->
+  <script>
+    window.Widget = {
+      AgentURL: "https://platform.zaia.app/embed/chat/19948",
+    };
+  </script>
+
+  <!-- Widget Loader Script -->
+  <script src="https://platform.zaia.app/script/widget-loader.js"></script>
+
+  <!-- Custom Style to Position Widget -->
+  <style>
+    .zaia-widget-container {
+      position: fixed; /* Fix the position on the screen */
+      bottom: 20px; /* Distance from the bottom of the screen */
+      right: 20px; /* Distance from the right of the screen */
+      z-index: 1000; /* Ensure it appears above most elements */
+    }
+  </style>
+</body>
+
+<body>
